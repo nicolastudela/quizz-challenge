@@ -6,21 +6,26 @@ import {
   ThemeProvider
 } from "@material-ui/core/styles";
 import { Router } from "react-router-dom";
+import { Provider } from "react-redux";
 import { createBrowserHistory } from "history";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from './theme'
+import configureStore from './redux'
 import * as serviceWorker from "./serviceWorker";
 
 const appHistory = createBrowserHistory();
+const store = configureStore({})
 
 console.log(theme)
 const Main = () => (
   <>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router history={appHistory}>
-        <App />
-      </Router>
+      <Provider store={store}>
+        <Router history={appHistory}>
+          <App />
+        </Router>
+      </Provider>
     </ThemeProvider>
   </>
 );
