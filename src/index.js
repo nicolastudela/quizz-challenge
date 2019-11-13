@@ -16,7 +16,6 @@ import * as serviceWorker from "./serviceWorker";
 const appHistory = createBrowserHistory();
 const store = configureStore({})
 
-console.log(theme)
 const Main = () => (
   <>
     <ThemeProvider theme={theme}>

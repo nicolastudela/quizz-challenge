@@ -1,39 +1,52 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import { Box } from "@material-ui/core";
 import { Home, Intro, Trivia } from "./components";
 import { connect } from "react-redux";
+import { fetchQuestionnaire } from "redux/ducks/questionnaire";
 
 const NoMatch = () => <div>NO match</div>;
 
-
-const PrivateRoute = ({ component: Component, user, ...rest }) => {
-
+const PrivateRoute = ({
+  component: Component,
+  user,
+  ...rest
+}) => {
   return (
     <Route
       {...rest}
       render={props => {
-
         if (user) {
-          return <Component user={user} {...props} />
+          return <Component user={user} {...props} />;
         }
         return (
           <Redirect
             to={{
-              pathname: '/',
-              state: { from: props.location },
+              pathname: "/",
+              state: { from: props.location }
             }}
           />
-        )
+        );
       }}
     />
-  )
-}
+  );
+};
 
-const App = ({user,...rest}) => {
+const App = ({ user, fetchQuestionnaire, ...rest }) => {
+  useEffect(() => {
+    fetchQuestionnaire();
+  }, [fetchQuestionnaire]);
   return (
     <>
-      <Box style={{background: "url(https://www.racingclub.com.ar/img/fondo-hinchada.jpg) no-repeat center center"}} height="100%" width="100%" display="flex">
+      <Box
+        style={{
+          background:
+            "url(https://www.racingclub.com.ar/img/fondo-hinchada.jpg) no-repeat center center"
+        }}
+        height="100%"
+        width="100%"
+        display="flex"
+      >
         <Box
           bgcolor="background.paper"
           width={{ xs: "95%", sm: "600px" }}
@@ -55,7 +68,7 @@ const App = ({user,...rest}) => {
                 )
               }
             />
-             <PrivateRoute user={user} exact path="/trivia" component={Trivia} />
+            <PrivateRoute user={user} exact path="/trivia" component={Trivia} />
             <Route component={NoMatch} />
           </Switch>
         </Box>
@@ -64,12 +77,13 @@ const App = ({user,...rest}) => {
   );
 };
 
-
 const mapStateToProps = state => {
-  return { user: state.user.user };
+  return { user: state.user.user};
 };
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  {
+   fetchQuestionnaire
+  }
 )(App);
-

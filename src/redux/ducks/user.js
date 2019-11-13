@@ -21,7 +21,6 @@ export default (state = initialState, action) => {
     // do reducer stuff
     case CREATE: {
       const { user } = action.payload;
-      debugger
       return { ...state, user }
     }
     default:
