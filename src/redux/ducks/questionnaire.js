@@ -11,9 +11,9 @@ const success = (resource, payload) => ({
   payload
 });
 
-const error = (resource, error) => ({
+const error = (resource, err) => ({
   type: `${resource}_ERROR`,
-  error
+  error: err
 });
 
 // ACTION CREATOR
@@ -25,7 +25,7 @@ export function fetchQuestionnaire() {
         `${process.env.REACT_APP_QUESTIONNAIRE_URL}`
       );
 
-      if (resp.response_code === 0) {
+      if (resp.responseCode === 0) {
         dispatch(success(FETCH_QUESTIONNAIRE, resp.results));
       } else {
         dispatch(
@@ -42,10 +42,6 @@ export function fetchQuestionnaire() {
       throw err;
     }
   };
-}
-
-export const isQuestionnaireReady = (state) => {
-  return !state.questionnaire.isFetching && state.questionnaire.items && state.questionnaire.items.length > 1
 }
 
 const initialState = {

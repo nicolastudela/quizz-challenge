@@ -1,23 +1,20 @@
 import React, { useEffect } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import { Box } from "@material-ui/core";
-import { Home, Intro, Trivia } from "./components";
+import { Home, Intro, Trivia, Result } from "components";
 import { connect } from "react-redux";
 import { fetchQuestionnaire } from "redux/ducks/questionnaire";
 
 const NoMatch = () => <div>NO match</div>;
 
-const PrivateRoute = ({
-  component: Component,
-  user,
-  ...rest
-}) => {
+// eslint-disable-next-line react/prop-types
+const PrivateRoute = ({ component: Component, userName, ...rest }) => {
   return (
     <Route
       {...rest}
       render={props => {
-        if (user) {
-          return <Component user={user} {...props} />;
+        if (userName) {
+          return <Component userName={userName} {...props} />;
         }
         return (
           <Redirect
@@ -32,7 +29,7 @@ const PrivateRoute = ({
   );
 };
 
-const App = ({ user, fetchQuestionnaire, ...rest }) => {
+const App = ({ userName, fetchQuestionnaire }) => {
   useEffect(() => {
     fetchQuestionnaire();
   }, [fetchQuestionnaire]);
@@ -61,14 +58,25 @@ const App = ({ user, fetchQuestionnaire, ...rest }) => {
               exact
               path="/"
               render={routeProps =>
-                user ? (
-                  <Home user={user} {...routeProps} />
+                userName ? (
+                  <Home userName={userName} {...routeProps} />
                 ) : (
                   <Intro {...routeProps} />
                 )
               }
             />
-            <PrivateRoute user={user} exact path="/trivia" component={Trivia} />
+            <PrivateRoute
+              userName={userName}
+              exact
+              path="/trivia"
+              component={Trivia}
+            />
+            <PrivateRoute
+              userName={userName}
+              exact
+              path="/result"
+              component={Result}
+            />
             <Route component={NoMatch} />
           </Switch>
         </Box>
@@ -78,12 +86,9 @@ const App = ({ user, fetchQuestionnaire, ...rest }) => {
 };
 
 const mapStateToProps = state => {
-  return { user: state.user.user};
+  return { userName: state.user.name };
 };
 
-export default connect(
-  mapStateToProps,
-  {
-   fetchQuestionnaire
-  }
-)(App);
+export default connect(mapStateToProps, {
+  fetchQuestionnaire
+})(App);

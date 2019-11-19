@@ -1,10 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Typography } from "@material-ui/core";
 
-export const Home = ({user, ...rest}) => (
+export const Home = ({ userName }) => (
   <>
-    <Typography variant="h3" align="center">{`Welcome ${user.name}`}</Typography>
+    <Typography variant="h3" align="center">{`Welcome ${userName}`}</Typography>
   </>
 );
 
-export default Home
+Home.propTypes = {
+  userName: PropTypes.string.isRequired
+};
+
+export default Home;

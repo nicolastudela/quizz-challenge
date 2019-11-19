@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Box, Button, TextField, Typography } from "@material-ui/core";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Space } from "uiCommons";
 import { userSignIn } from "../redux/ducks/user";
 
-export const Intro = ({ userSignIn, history, ...rest }) => {
-  const [name, setName] = useState();
+export const Intro = ({ signIn, history }) => {
+  const [name, setName] = useState("");
   const [error, setError] = useState();
 
-  const handleChange = name => ({ target: { value } }) => {
+  const handleChange = () => ({ target: { value } }) => {
     if (!value || value === "") {
       setError("You must enter a name to start the trivia");
     } else {
@@ -19,8 +20,7 @@ export const Intro = ({ userSignIn, history, ...rest }) => {
   };
 
   const onBegin = () => {
-    //next stage
-    userSignIn(name);
+    signIn(name);
     history.push("/trivia");
   };
 
@@ -86,7 +86,15 @@ export const Intro = ({ userSignIn, history, ...rest }) => {
   );
 };
 
-export default connect(
-  null,
-  { userSignIn }
-)(Intro);
+Intro.propTypes = {
+  signIn: PropTypes.func,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired
+};
+
+Intro.defaultProps = {
+  signIn: () => {}
+};
+
+export default connect(null, { signIn: userSignIn })(Intro);
