@@ -47,6 +47,7 @@ const App = ({ userName, fetchQuestionnaire }) => {
         <Box
           bgcolor="background.paper"
           width={{ xs: "95%", sm: "600px" }}
+          minHeight="600px"
           marginX="auto"
           marginY="3rem"
           padding="1.5rem"

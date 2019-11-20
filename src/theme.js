@@ -1,12 +1,12 @@
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
-import teal from "@material-ui/core/colors/teal";
+import grey from "@material-ui/core/colors/grey";
 import lightBlue from "@material-ui/core/colors/lightBlue";
 
 export default responsiveFontSizes(
   createMuiTheme({
     palette: {
       primary: lightBlue,
-      secondary: teal
+      secondary: grey
     },
     typography: {
       fontFamily: [
@@ -34,12 +34,12 @@ export default responsiveFontSizes(
       h4: {
         fontFamily: "'Lobster',cursive"
       },
-      h5: {
-        fontFamily: "'Lobster',cursive"
-      },
-      h6: {
-        fontFamily: "'Lobster',cursive"
-      },
+      // h5: {
+      //   fontFamily: "'Lobster',cursive"
+      // },
+      // h6: {
+      //   fontFamily: "'Lobster',cursive"
+      // },
       subtitle1: {
         fontFamily: "'Lobster',cursive"
       },

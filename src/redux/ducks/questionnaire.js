@@ -1,4 +1,7 @@
 import api from "api";
+import htmlEntities from "html-entities";
+
+const entities = new htmlEntities.AllHtmlEntities();
 
 const FETCH_QUESTIONNAIRE = "questionnaire/FETCH";
 
@@ -26,7 +29,17 @@ export function fetchQuestionnaire() {
       );
 
       if (resp.responseCode === 0) {
-        dispatch(success(FETCH_QUESTIONNAIRE, resp.results));
+        dispatch(
+          success(
+            FETCH_QUESTIONNAIRE,
+            resp.results.map(result => {
+              // We are safe cause won't be using response obj after this
+              // eslint-disable-next-line no-param-reassign
+              result.question = entities.decode(result.question);
+              return result;
+            })
+          )
+        );
       } else {
         dispatch(
           error(

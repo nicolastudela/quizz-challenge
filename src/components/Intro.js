@@ -38,7 +38,7 @@ export const Intro = ({ signIn, history }) => {
       <Typography variant="h4" align="center">
         Can You Score 100%?
       </Typography>
-
+      <Space size="6em" />
       <form onSubmit={onBegin}>
         <Box
           display="flex"

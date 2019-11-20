@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import { Box, Button, CircularProgress, Typography } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  Grow,
+  CircularProgress,
+  Typography
+} from "@material-ui/core";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Space } from "uiCommons";
 import { fetchQuestionnaire } from "redux/ducks/questionnaire";
 import { addResult } from "redux/ducks/user";
 import { format } from "date-fns";
+import { makeStyles } from "@material-ui/core/styles";
 
 const QuestionnaireNotAvailable = ({ refetchQuestionnaire }) => (
   <>
@@ -29,35 +36,55 @@ QuestionnaireNotAvailable.propTypes = {
   refetchQuestionnaire: PropTypes.func.isRequired
 };
 
-const Question = ({ question, onAnswer }) => (
-  <>
-    <Typography
-      variant="h4"
-      align="center"
-    >{`${question.category}`}</Typography>
-    <Space size="6em" />
-    {question.type === "boolean" && (
-      <>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => onAnswer(question, "False")}
-          size="large"
-        >
-          False
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => onAnswer(question, "True")}
-          size="large"
-        >
-          True
-        </Button>
-      </>
-    )}
-  </>
-);
+const useCategoryLabelStyle = makeStyles({
+  h4: {
+    textDecoration: "underline"
+  }
+});
+
+const Question = ({ question, onAnswer }) => {
+  const classes = useCategoryLabelStyle();
+  return (
+    <>
+      <Typography
+        variant="h4"
+        align="center"
+        classes={{
+          h4: classes.h4
+        }}
+      >{`${question.category}`}</Typography>
+      <Space size="4em" />
+      {question.type === "boolean" && (
+        <>
+          <Typography variant="h5" align="center">
+            {question.question}
+          </Typography>
+          <Space size="2em" />
+          <Box width={1} display="flex" justifyContent="space-evenly">
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => onAnswer(question, "False")}
+              size="large"
+              style={{ width: "30%" }}
+            >
+              False
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => onAnswer(question, "True")}
+              size="large"
+              style={{ width: "30%" }}
+            >
+              True
+            </Button>
+          </Box>
+        </>
+      )}
+    </>
+  );
+};
 
 Question.propTypes = {
   question: PropTypes.PropTypes.shape({
@@ -73,6 +100,14 @@ Question.propTypes = {
 const isQuestionnaireReady = (isFetching, questions) =>
   !isFetching && questions && questions.length > 1;
 
+const delay = () =>
+  new Promise(resolve => {
+    function resol() {
+      resolve("good");
+    }
+    setTimeout(resol, 300);
+  });
+
 export const Trivia = ({
   userName,
   isQuestionnaireLoading,
@@ -82,6 +117,7 @@ export const Trivia = ({
   history
 }) => {
   const [answers, setAnswers] = useState([]);
+  const [onNextQuestion, setOnNextQuestion] = useState(false);
   const questionaryReady = isQuestionnaireReady(
     isQuestionnaireLoading,
     questions
@@ -96,7 +132,7 @@ export const Trivia = ({
       overall: {
         answersCorrect: answers.filter(ans => ans.correct).length,
         totalQuestions: questions.length,
-        dateTime: format(new Date(), "yyyy/M/d h/m")
+        dateTime: format(new Date(), "yyyy/M/d hh:mm a")
       },
       answers
     };
@@ -106,6 +142,7 @@ export const Trivia = ({
   };
 
   const onAnswer = (question, answer) => {
+    setOnNextQuestion(true);
     const updatedAnswers = answers.concat([
       {
         ...question,
@@ -113,7 +150,11 @@ export const Trivia = ({
         correct: question.correctAnswer === answer
       }
     ]);
-    setAnswers(updatedAnswers);
+
+    delay().then(() => {
+      setAnswers(updatedAnswers);
+      setOnNextQuestion(false);
+    });
     if (updatedAnswers.length === questions.length) {
       onFinish();
     }
@@ -134,7 +175,13 @@ export const Trivia = ({
         )}
         {questionaryReady && (
           <>
-            {question && <Question question={question} onAnswer={onAnswer} />}
+            <Grow in={!onNextQuestion}>
+              <div>
+                {question && (
+                  <Question question={question} onAnswer={onAnswer} />
+                )}
+              </div>
+            </Grow>
             <Space size="6em" />
             {answers && (
               <Typography variant="body1">{`${answers.length + 1} / ${
