@@ -40,29 +40,32 @@ export const Intro = ({ signIn, history }) => {
       </Typography>
       <Space size="6em" />
       <form onSubmit={onBegin}>
+        <Typography variant="subtitle1" align="left">
+          Write your name to begin
+        </Typography>
+        <Space size="1em" />
         <Box
           display="flex"
           justifyContent="space-between"
-          alignItems="center"
+          alignItems={error ? "flex-start" : "center"}
           flexWrap="wrap"
         >
-          <Box width={{ sm: "100%", md: "60%" }}>
+          <Box width={{ xs: "100%", sm: "60%" }}>
             <TextField
               id="name"
               label="Name"
-              autoComplete="Write your name to start"
+              autoComplete="Name"
               name="name"
               onChange={handleChange("name")}
               value={name}
               error={!!error}
-              helperText={error || "Write your name to start"}
-              // helperText={error}
+              helperText={error}
               variant="outlined"
               required
               fullWidth
             />
           </Box>
-          <Box display="flex" width={{ xs: "100%", md: "35%" }}>
+          <Box display="flex" width={{ xs: "100%", sm: "35%" }}>
             <Box
               marginX={{ xs: "auto" }}
               marginY={{ xs: "1rem", md: 0 }}

@@ -19,7 +19,7 @@ export const reset = () => {
 
 export const addResult = result => {
   const user = JSON.parse(localStorage.getItem("user"));
-  user.results.push(result);
+  user.results.unshift(result);
   localStorage.setItem("user", JSON.stringify(user));
   return { type: ADD_RESULT, payload: result };
 };
@@ -39,7 +39,9 @@ export default (state = initialState, action) => {
     }
     case ADD_RESULT: {
       const result = action.payload;
-      return { ...state, results: state.results.concat([result]) };
+      const updTresults = state.results.slice();
+      updTresults.unshift(result);
+      return { ...state, results: updTresults };
     }
     default:
       return state;

@@ -40,13 +40,15 @@ export const Home = ({ userName, results, history, resetUser }) => {
         align="center"
       >{`Welcome ${userName}`}</Typography>
       <Space size="6em" />
-      <Typography variant="subtitle1" align="left">
+      <Typography variant="h4" align="left">
         Your last results:
       </Typography>
       {results && (
         <List component="nav" aria-label="trivia-results">
-          {results.map(result => (
-            <ListItem key={`${result.overall.dateTime}`}>
+          {results.map((result, idx) => (
+            // we are not operating on this results list order
+            // eslint-disable-next-line react/no-array-index-key
+            <ListItem key={idx}>
               <ListItemIcon>{iconForResult(result)}</ListItemIcon>
               <ListItemText
                 primary={`You scored: ${result.overall.answersCorrect} / ${result.overall.totalQuestions}`}
@@ -88,11 +90,16 @@ Home.propTypes = {
     PropTypes.shape({
       overall: PropTypes.object
     })
-  )
+  ),
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired,
+  resetUser: PropTypes.func
 };
 
 Home.defaultProps = {
-  results: []
+  results: [],
+  resetUser: () => {}
 };
 
 const mapStateToProps = state => {

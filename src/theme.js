@@ -48,8 +48,8 @@ export default responsiveFontSizes(
       },
       button: {
         fontFamily: "'Lobster',cursive",
-        textTransform: "capitalize",
-      },
+        textTransform: "capitalize"
+      }
     }
   })
 );

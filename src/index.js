@@ -1,20 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import "./index.css";
-import App from "./App";
-import {
-  ThemeProvider
-} from "@material-ui/core/styles";
 import { Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createBrowserHistory } from "history";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import theme from './theme'
-import configureStore from './redux'
+import ScrollToTop from "components/utils/ScrollToTop";
+import theme from "./theme";
+import configureStore from "./redux";
 import * as serviceWorker from "./serviceWorker";
+import App from "./App";
 
 const appHistory = createBrowserHistory();
-const store = configureStore({})
+const store = configureStore({});
 
 const Main = () => (
   <>
@@ -22,7 +21,9 @@ const Main = () => (
       <CssBaseline />
       <Provider store={store}>
         <Router history={appHistory}>
-          <App />
+          <ScrollToTop>
+            <App />
+          </ScrollToTop>
         </Router>
       </Provider>
     </ThemeProvider>

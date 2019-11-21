@@ -15,7 +15,7 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import { Space } from "uiCommons";
 
-export const Result = ({ userName, location, history, results }) => {
+export const Result = ({ location, history, results }) => {
   const result = results.length > 0 ? results[results.length - 1] : null;
 
   return result ? (
@@ -31,6 +31,8 @@ export const Result = ({ userName, location, history, results }) => {
       {result && result.answers && (
         <List>
           {result.answers.map((answer, idx) => (
+            // we are not operating on this results list order
+            // eslint-disable-next-line react/no-array-index-key
             <ListItem key={idx}>
               <ListItemIcon>
                 {answer.correct ? (
@@ -75,7 +77,6 @@ export const Result = ({ userName, location, history, results }) => {
 };
 
 Result.propTypes = {
-  userName: PropTypes.string.isRequired,
   location: PropTypes.shape({
     state: PropTypes.object
   }).isRequired,
@@ -83,7 +84,10 @@ Result.propTypes = {
     PropTypes.shape({
       overall: PropTypes.object
     })
-  )
+  ),
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired
 };
 
 Result.defaultProps = {
