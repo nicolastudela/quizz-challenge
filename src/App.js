@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { Route, Redirect, Switch } from "react-router-dom";
 import { Box } from "@material-ui/core";
 import { Home, Intro, Trivia, Result } from "components";
@@ -46,8 +47,8 @@ const App = ({ userName, fetchQuestionnaire }) => {
       >
         <Box
           bgcolor="background.paper"
-          width={{ xs: "95%", sm: "600px" }}
-          minHeight="600px"
+          width={{ xs: "95%", sm: "700px" }}
+          minHeight="700px"
           marginX="auto"
           marginY="3rem"
           padding="1.5rem"
@@ -84,6 +85,16 @@ const App = ({ userName, fetchQuestionnaire }) => {
       </Box>
     </>
   );
+};
+
+App.propTypes = {
+  userName: PropTypes.string,
+  fetchQuestionnaire: PropTypes.func
+};
+
+App.defaultProps = {
+  userName: null,
+  fetchQuestionnaire: () => {}
 };
 
 const mapStateToProps = state => {

@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page renders propery 1`] = `
+Array [
+  <h3
+    className="MuiTypography-root MuiTypography-h3 MuiTypography-alignCenter"
+  >
+    Welcome undefined
+  </h3>,
+  <div
+    className="MuiBox-root MuiBox-root-32"
+  />,
+  <h4
+    className="MuiTypography-root MuiTypography-h4 MuiTypography-alignLeft"
+  >
+    Your last results:
+  </h4>,
+  <nav
+    aria-label="trivia-results"
+    className="MuiList-root MuiList-padding"
+  />,
+  <div
+    className="MuiBox-root MuiBox-root-37"
+  />,
+  <div
+    className="MuiBox-root MuiBox-root-38"
+  >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "width": "30%",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        Reset User
+      </span>
+    </button>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "width": "50%",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        Play Again?
+      </span>
+    </button>
+  </div>,
+]
+`;

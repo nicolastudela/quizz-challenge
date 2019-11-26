@@ -14,6 +14,7 @@ const request = async (url, options = {}) => {
   try {
     const response = await fetch(url, options);
 
+    // INFO: uncomment this if you want to test a failing call or a delay
     // await delay()
     const payload = await response.json();
     return camelcaseKeys(payload, { deep: true });

@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Result page renders propery when results are NOT available 1`] = `
+<div>
+   REDIRECT
+</div>
+`;
+
+exports[`Result page renders propery when results are available 1`] = `
+Array [
+  <h3
+    className="MuiTypography-root MuiTypography-h3 MuiTypography-alignCenter"
+  >
+    You scored
+  </h3>,
+  <h4
+    className="MuiTypography-root MuiTypography-h4 MuiTypography-alignCenter"
+  >
+    2 / 3
+  </h4>,
+  <div
+    className="MuiBox-root MuiBox-root-32"
+  />,
+  <ul
+    className="MuiList-root MuiList-padding"
+  >
+    <li
+      className="MuiListItem-root MuiListItem-gutters"
+      disabled={false}
+    >
+      <div
+        className="MuiListItemIcon-root"
+      >
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root"
+          focusable="false"
+          role="presentation"
+          style={
+            Object {
+              "color": "green",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+          />
+        </svg>
+      </div>
+      <div
+        className="MuiListItemText-root"
+      >
+        <span
+          className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+        >
+          QUEST 1: Question 1
+        </span>
+      </div>
+    </li>
+    <li
+      className="MuiListItem-root MuiListItem-gutters"
+      disabled={false}
+    >
+      <div
+        className="MuiListItemIcon-root"
+      >
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root"
+          focusable="false"
+          role="presentation"
+          style={
+            Object {
+              "color": "red",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 13H5v-2h14v2z"
+          />
+        </svg>
+      </div>
+      <div
+        className="MuiListItemText-root"
+      >
+        <span
+          className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+        >
+          QUEST 1: Question 2
+        </span>
+      </div>
+    </li>
+    <li
+      className="MuiListItem-root MuiListItem-gutters"
+      disabled={false}
+    >
+      <div
+        className="MuiListItemIcon-root"
+      >
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root"
+          focusable="false"
+          role="presentation"
+          style={
+            Object {
+              "color": "green",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+          />
+        </svg>
+      </div>
+      <div
+        className="MuiListItemText-root"
+      >
+        <span
+          className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+        >
+          QUEST 1: Question 3
+        </span>
+      </div>
+    </li>
+  </ul>,
+  <div
+    className="MuiBox-root MuiBox-root-65"
+  />,
+  <div
+    className="MuiBox-root MuiBox-root-66"
+  >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "width": "30%",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        Other Results
+      </span>
+    </button>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "width": "50%",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        Play Again?
+      </span>
+    </button>
+  </div>,
+]
+`;

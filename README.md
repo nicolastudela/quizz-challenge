@@ -1,8 +1,53 @@
+# Solution to the Trivia Game Coding Challenge
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+The challenge was to create a 10 question, true or false, trivia app in the technology you are applying to work in. You should not just implement the most basic solution. This is a chance to show off your abilities and impress.
 
-In the project directory, you can run:
+The application code tries to focus on the following areas 
+
+- Functionality
+- Code Format
+- Project Structure
+- Scalability
+- Maintainability
+- Use of industry best practices
+
+## About the implementation
+-------------
+
+### Material-UI: Component library - Styling Solution - UX & Responsiveness  
+
+I used material UI as a main componenent library, styling solution (CSS-IN-JS) and Styled system (Style-Props) -> Responsive, theme-based style props for building design systems)
+
+### User support (Bonus feature)
+
+I implemented a basic user support. The trivia will request a user name to play. Each game the user plays will be stored and results can be checked later.
+
+ The user data (name) and its'results will be stored in `localStorage` as well. So Next time the user re-loads the site the data won't be lost. There is a reset button to delete this data as well.
+
+### Scalability
+
+The app only supports a trivia of yes-no questions. But it can be easily extended by modifying the Question component located at in src/components/Trivia.js.be 
+
+With a few changes here and there (redux store, few components) we could extend the app to support different questionnaire types.
+
+### State manager
+
+I used redux as global state manager. Although I think its overkill for this particular solution. I ended up implementing with it because it was listed on the challenge requirements.
+
+I think this could be solved just with handling the state in the higher level component, or a better solution would be to implement a custom Context (Provider->consumer) to avoid prop-drilling 
+
+I used ducks to organize the redux code (reducers, action, action-types, action creators). The idea is to have related code of a resource ( in this case user, questionnaire ) in a single file, where it can be easily maintained. 
+
+### Unit Testing - Jest and React Testing library
+
+
+### Navigation solution
+
+I picked React-Router to implement a proper navigation solution. 
+
+## Available Scripts
 
 ### `npm start`
 
@@ -26,6 +71,13 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+# Create React App Documentation
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
 
 ### `npm run eject`
 

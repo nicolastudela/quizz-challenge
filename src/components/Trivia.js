@@ -161,7 +161,6 @@ export const Trivia = ({
   };
 
   const question = nextQuestion();
-
   return (
     <>
       <Typography variant="h3" align="center">{`Go ${userName}!`}</Typography>

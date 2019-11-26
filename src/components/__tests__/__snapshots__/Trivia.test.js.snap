@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Triva page renders propery  1`] = `
+Array [
+  <h3
+    className="MuiTypography-root MuiTypography-h3 MuiTypography-alignCenter"
+  >
+    Go Nico!
+  </h3>,
+  <div
+    className="MuiBox-root MuiBox-root-32"
+  />,
+  <div
+    className="MuiBox-root MuiBox-root-33"
+  >
+    <div>
+      <div>
+        <h4
+          className="MuiTypography-root MuiTypography-h4 makeStyles-h4-34 MuiTypography-alignCenter"
+        >
+          History
+        </h4>
+        <div
+          className="MuiBox-root MuiBox-root-35"
+        />
+        <h5
+          className="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+        >
+          The Kingdom of Prussia briefly held land in Estonia.
+        </h5>
+        <div
+          className="MuiBox-root MuiBox-root-36"
+        />
+        <div
+          className="MuiBox-root MuiBox-root-37"
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            style={
+              Object {
+                "width": "30%",
+              }
+            }
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiButton-label"
+            >
+              False
+            </span>
+          </button>
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            style={
+              Object {
+                "width": "30%",
+              }
+            }
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiButton-label"
+            >
+              True
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="MuiBox-root MuiBox-root-69"
+    />
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      1 / 10
+    </p>
+  </div>,
+]
+`;

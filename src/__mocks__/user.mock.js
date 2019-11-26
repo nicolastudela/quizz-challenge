@@ -1,4 +1,4 @@
-const userWith1BooleanResult = {
+export const userWith1BooleanResult = {
   name: "nico",
   results: [
     {
