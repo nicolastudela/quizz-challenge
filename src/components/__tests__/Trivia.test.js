@@ -49,7 +49,7 @@ describe("Triva page", () => {
     expect(getByText(mockQuestions.results[0].question)).toBeTruthy();
   });
 
-  it("will show next question when answer a displayed question ", async () => {
+  it("will show the second question after answering the first one ", async () => {
     expect.assertions(4);
     const { getByText } = render(
       <WithReduxStoreTestWrapper
@@ -68,6 +68,7 @@ describe("Triva page", () => {
 
     expect(getByText("1 / 10")).toBeTruthy();
 
+    // asnwers True
     const answerButtonTrue = getByText("True");
     answerButtonTrue.click();
 

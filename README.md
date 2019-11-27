@@ -1,7 +1,5 @@
 # Solution to the Trivia Game Coding Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 The challenge was to create a 10 question, true or false, trivia app in the technology you are applying to work in. You should not just implement the most basic solution. This is a chance to show off your abilities and impress.
 
 The application code tries to focus on the following areas 
@@ -13,39 +11,59 @@ The application code tries to focus on the following areas
 - Maintainability
 - Use of industry best practices
 
+---
+
 ## About the implementation
--------------
 
-### Material-UI: Component library - Styling Solution - UX & Responsiveness  
 
-I used material UI as a main componenent library, styling solution (CSS-IN-JS) and Styled system (Style-Props) -> Responsive, theme-based style props for building design systems)
+### *Component library - Styling Solution - UX & Responsiveness*  
 
-### User support (Bonus feature)
+I used *`Material-UI`* as a main componenent library, styling solution *`(CSS-IN-JS)`* and *`Styled system`* (Style-Props). Its Responsive, and theme-based style.
+
+#### Visual Features
+- It will show a visual transition when a new question is displayed
+- Last results section will display different icons (good, average, bad) based on the score  
+- The UI is mobile friendly. Some components are shown differently based on the user screen size. 
+
+### *User support (Bonus feature)*
 
 I implemented a basic user support. The trivia will request a user name to play. Each game the user plays will be stored and results can be checked later.
 
- The user data (name) and its'results will be stored in `localStorage` as well. So Next time the user re-loads the site the data won't be lost. There is a reset button to delete this data as well.
+The user data (name) and its'results will be stored in `localStorage` as well. So Next time the user re-loads the site the data won't be lost. There is a reset button to delete this data as well.
 
-### Scalability
+### *Scalability*
 
-The app only supports a trivia of yes-no questions. But it can be easily extended by modifying the Question component located at in src/components/Trivia.js.be 
+The app only supports a trivia of yes-no questions. But it can be easily extended by modifying the `Question` component, where it can be located at `src/components/Trivia.js`
 
 With a few changes here and there (redux store, few components) we could extend the app to support different questionnaire types.
 
-### State manager
+### *State manager*
 
-I used redux as global state manager. Although I think its overkill for this particular solution. I ended up implementing with it because it was listed on the challenge requirements.
+I used *`Redux`* as global state manager. Although I think its overkill for this particular solution. I ended up implementing with it because it was listed on the challenge requirements.
 
 I think this could be solved just with handling the state in the higher level component, or a better solution would be to implement a custom Context (Provider->consumer) to avoid prop-drilling 
 
 I used ducks to organize the redux code (reducers, action, action-types, action creators). The idea is to have related code of a resource ( in this case user, questionnaire ) in a single file, where it can be easily maintained. 
 
-### Unit Testing - Jest and React Testing library
+see `src/redux`
 
+### *Api*
+
+I implemeneted a very simple api fetcher, that will be in charge of fetching the questionnaire. see `src/api.js`
+
+### *Unit Testing*  
+
+Unit test are implemented using  *`Jest`* as a test runnuner and *`React Testing library`* (React DOM testing utilities). 
+
+I used jest mainly as a test runner, but also other out-of-the box functionalities that jest brings like mocking ( e.g. `api` (with manual mocking, mocked `Redirect` from *`react-router-dom`* ), and  
 
 ### Navigation solution
 
-I picked React-Router to implement a proper navigation solution. 
+I picked *`React-Router`* to implement a proper navigation solution. 
+
+---
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

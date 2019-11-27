@@ -23,16 +23,20 @@ Array [
         <div
           className="MuiBox-root MuiBox-root-35"
         />
-        <h5
-          className="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
-        >
-          The Kingdom of Prussia briefly held land in Estonia.
-        </h5>
         <div
           className="MuiBox-root MuiBox-root-36"
-        />
+        >
+          <h5
+            className="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+          >
+            The Kingdom of Prussia briefly held land in Estonia.
+          </h5>
+        </div>
         <div
           className="MuiBox-root MuiBox-root-37"
+        />
+        <div
+          className="MuiBox-root MuiBox-root-38"
         >
           <button
             className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-containedSizeLarge MuiButton-sizeLarge"
@@ -96,7 +100,7 @@ Array [
       </div>
     </div>
     <div
-      className="MuiBox-root MuiBox-root-69"
+      className="MuiBox-root MuiBox-root-70"
     />
     <p
       className="MuiTypography-root MuiTypography-body1"

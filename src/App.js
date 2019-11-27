@@ -39,7 +39,7 @@ const App = ({ userName, fetchQuestionnaire }) => {
       <Box
         style={{
           background:
-            "url(https://www.racingclub.com.ar/img/fondo-hinchada.jpg) no-repeat center center"
+            "url(https://www.racingclub.com.ar/img/fondo-hinchada.jpg) center center"
         }}
         height="100%"
         width="100%"
@@ -48,9 +48,9 @@ const App = ({ userName, fetchQuestionnaire }) => {
         <Box
           bgcolor="background.paper"
           width={{ xs: "95%", sm: "700px" }}
-          minHeight="700px"
+          minHeight="600px"
           marginX="auto"
-          marginY="3rem"
+          marginY={{ xs: "3em", xl: "10em" }}
           padding="1.5rem"
           border="2px solid"
           boxShadow="rgba(0, 153, 204, 0.9) 2px 2px 2px"

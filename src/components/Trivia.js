@@ -56,9 +56,11 @@ const Question = ({ question, onAnswer }) => {
       <Space size="4em" />
       {question.type === "boolean" && (
         <>
-          <Typography variant="h5" align="center">
-            {question.question}
-          </Typography>
+          <Box minHeight="130px">
+            <Typography variant="h5" align="center">
+              {question.question}
+            </Typography>
+          </Box>
           <Space size="2em" />
           <Box width={1} display="flex" justifyContent="space-evenly">
             <Button
@@ -181,7 +183,7 @@ export const Trivia = ({
                 )}
               </div>
             </Grow>
-            <Space size="6em" />
+            <Space size="3em" />
             {answers && (
               <Typography variant="body1">{`${answers.length + 1} / ${
                 questions.length
@@ -213,7 +215,6 @@ Trivia.defaultProps = {
 };
 
 const mapStateToProps = state => {
-  // debugger
   return {
     isQuestionnaireLoading: state.questionnaire.isFetching,
     questions: state.questionnaire.items

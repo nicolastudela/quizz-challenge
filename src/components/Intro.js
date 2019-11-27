@@ -34,16 +34,16 @@ export const Intro = ({ signIn, history }) => {
       <Typography variant="h4" align="center">
         You will be presented with 10 True or False questions.
       </Typography>
-      <Space size="4em" />
+      <Space size="1.5em" />
       <Typography variant="h4" align="center">
         Can You Score 100%?
       </Typography>
-      <Space size="6em" />
+      <Space size="4em" />
       <form onSubmit={onBegin}>
         <Typography variant="subtitle1" align="left">
           Write your name to begin
         </Typography>
-        <Space size="1em" />
+        <Space size="0.5em" />
         <Box
           display="flex"
           justifyContent="space-between"
