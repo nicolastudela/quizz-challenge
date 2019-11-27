@@ -13,6 +13,8 @@ The application code tries to focus on the following areas
 
 ---
 
+* You can test it live at: https://trivia-challenge.nicolastudela.now.sh/ or https://trivia-challenge.now.sh/
+
 ## About the implementation
 
 
