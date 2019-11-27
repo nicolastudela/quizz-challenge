@@ -25,7 +25,7 @@ export function fetchQuestionnaire() {
     dispatch(start(FETCH_QUESTIONNAIRE));
     try {
       const resp = await api.request(
-        `${process.env.REACT_APP_QUESTIONNAIRE_URL}`
+        "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean"
       );
 
       if (resp.responseCode === 0) {
