@@ -6,7 +6,7 @@ import "./index.css";
 import { Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createBrowserHistory } from "history";
-import ScrollToTop from "components/utils/ScrollToTop";
+import ScrollToTop from "./components/utils/ScrollToTop";
 import theme from "./theme";
 import configureStore from "./redux";
 import * as serviceWorker from "./serviceWorker";
